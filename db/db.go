@@ -43,5 +43,8 @@ func Connect() (err error) {
 	if DB, err = sql.Open("postgres", psqlInfo); err != nil {
 		return err
 	}
+	if err = DB.Ping(); err != nil {
+		return err
+	}
 	return nil
 }
